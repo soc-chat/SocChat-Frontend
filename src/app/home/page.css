@@ -1,3 +1,7 @@
+.home{
+    user-select: none;
+}
+
 .intro{
     margin: auto;
     width: 440px;
@@ -11,7 +15,7 @@
 .mainbtn{
     margin: auto;
     width: 440px;
-    margin-top: 40vh;
+    margin-top: 50vh;
 }
 
 @media (max-width:440px) {
