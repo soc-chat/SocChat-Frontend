@@ -6,6 +6,7 @@ import MainButton from '../components/MainButton';
 
 const Waiting = () => {
     return(
+        <div className="background">
         <div className="waiting">
             <div className="timer">
                 <Timer />
@@ -27,6 +28,7 @@ const Waiting = () => {
                     <MainButton color={'#4c4c4c'} textColor={'#a8a8a8'} value={'나가기'} onClick={()=>{console.log('나가기 클릭')}}/>
                 </div>
             </div>
+        </div>
         </div>
     )
 }

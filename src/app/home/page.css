@@ -1,10 +1,21 @@
+.background{
+    background-color: rgb(130, 130, 130);
+    height: 100vh;
+    margin: 0;
+}
+
 .home{
     user-select: none;
+    background-color: black;
+    width: 480px;
+    margin: auto;
+    height: 100vh;
+    padding: 1px;
 }
 
 .intro{
     margin: auto;
-    width: 440px;
+    width: 420px;
     font-size: 30px;
     font-weight: 600;
     color: white;
@@ -14,7 +25,7 @@
 
 .mainbtn{
     margin: auto;
-    width: 440px;
+    width: 390px;
     margin-top: 50vh;
 }
 
