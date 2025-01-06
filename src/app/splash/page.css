@@ -1,0 +1,10 @@
+.splash{
+    display: flex;
+    align-content: center;
+    height: 100vh;
+    user-select: none;
+}
+
+.socchat_logo{
+    margin: auto;
+}
