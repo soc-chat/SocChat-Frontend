@@ -1,0 +1,28 @@
+.intro{
+    margin: auto;
+    width: 440px;
+    font-size: 30px;
+    font-weight: 600;
+    color: white;
+    margin-top: 15vh;
+    overflow: hidden;
+}
+
+.mainbtn{
+    margin: auto;
+    width: 440px;
+    margin-top: 40vh;
+}
+
+@media (max-width:440px) {
+    .intro{
+        width: 90vw;
+        margin-top: 15vh;
+        margin-left: 20px;
+    }
+
+    .mainbtn{
+        width: 100vh;
+        margin-top: 55vh;
+    }
+}

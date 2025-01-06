@@ -1,0 +1,15 @@
+.mainBtn{
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    width: 440px;
+    height: 60px;
+    font-size: 23px;
+    font-weight: 600;
+}
+
+@media (max-width:440px) {
+    .mainBtn{
+        width: 90vw;
+    }
+}
