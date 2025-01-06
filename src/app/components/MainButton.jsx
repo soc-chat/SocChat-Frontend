@@ -2,9 +2,9 @@
 
 import './MainButton.css'
 
-const MainButton = ({value, onClick, color}) => {
+const MainButton = ({value, onClick, color, textColor}) => {
     return(
-        <button className='mainBtn' style={{backgroundColor:color}} onClick={onClick}>{value}</button>
+        <button className='mainBtn' style={{backgroundColor:color, color:textColor ? textColor : 'white'}} onClick={onClick}>{value}</button>
     )
 }
 

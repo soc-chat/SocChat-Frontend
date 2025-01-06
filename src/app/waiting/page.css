@@ -1,0 +1,70 @@
+.waiting{
+    user-select: none;
+    overflow: hidden;
+}
+
+.timer{
+    height: 8vh;
+    margin-left: 10px;
+    align-content: center;
+}
+
+.announce{
+    display: flex;
+    padding: 12px;
+    padding-left: 30px;
+    background-color: #4c4c4c;
+    height: 40px;
+}
+
+.announce img{
+    width: 15px;
+    height: 20px;
+}
+
+.announce p{
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.desc{
+    margin: auto;
+    width: 440px;
+    margin-top: 10vh;
+    overflow: hidden;
+    text-align: center;
+}
+
+.desc_bold{
+    font-size: 30px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.mainbtn{
+    margin: auto;
+    width: 440px;
+    margin-top: 10vh;
+}
+
+.socchat_logo{
+    width: 122px;
+    margin: auto;
+    margin-top: 10vh;
+}
+
+@media (max-width:440px) {
+    .desc{
+        width: 90vw;
+        margin-top: 15vh;
+        margin-left: 20px;
+    }
+
+    .mainbtn{
+        width: 100vw;
+        margin-top: 15vh;
+        display: flex;
+        align-content: center;
+    }
+}
