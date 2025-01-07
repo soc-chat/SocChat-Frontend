@@ -65,7 +65,7 @@ height: 100vh;
 `;
 
 export const ChatInput = styled.div`
-                         position: fixed;
+position: fixed;
 bottom: 0;
 height: 60px;
 background-color: #3B3B3B;

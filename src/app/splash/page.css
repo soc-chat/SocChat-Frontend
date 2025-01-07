@@ -3,6 +3,7 @@
     align-content: center;
     height: 100vh;
     user-select: none;
+    background-color: black;
 }
 
 .socchat_logo{
