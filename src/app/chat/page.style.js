@@ -1,0 +1,77 @@
+import styled from 'styled-components';
+
+export const TopMenu = styled.div`
+                       display: flex;
+height: 10vh;
+padding: 0 20px;
+align-items: center;
+justify-content: space-between;
+
+.left {
+    display: flex;
+
+    p {
+        padding: 6px;
+        font-size: 20px;
+    }
+}
+`;
+
+export const Background = styled.div`
+                          background-color: rgb(130, 130, 130);
+height: 100vh;
+margin: 0;
+overflow: hidden;
+`;
+
+export const Chat = styled.div`
+                    user-select: none;
+background-color: black;
+width: 480px;
+margin: auto;
+height: 100vh;
+padding: 1px;
+
+@media (max-width: 440px) {
+    width: 100vw;
+}
+`;
+
+export const ChatContainer = styled.div`
+                             overflow-y: auto;
+height: 100vh;
+
+&::-webkit-scrollbar {
+    display: none;
+}
+`;
+
+export const ChatInput = styled.div`
+                         position: fixed;
+bottom: 0;
+height: 60px;
+background-color: #3B3B3B;
+width: 479px;
+display: flex;
+align-content: center;
+padding: 10px 20px;
+justify-content: space-between;
+
+input {
+    width: 80%;
+    background-color: #3B3B3B;
+    font-size: 18px;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+@media (max-width: 440px) {
+    width: 100vw;
+}
+`;
+
+export const SendImg = styled.div`
+                       align-content: center;
+`;
