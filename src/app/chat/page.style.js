@@ -83,6 +83,7 @@ input {
     width: 80%;
     background-color: #3B3B3B;
     font-size: 18px;
+    color: white;
 
     &:focus {
         outline: none;
