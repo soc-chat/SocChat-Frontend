@@ -1,4 +1,22 @@
 import styled from 'styled-components';
+import createGlobalStyle from 'styled-components';
+
+export const GlobalStyle = createGlobalStyle`
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    height: var(--vh, 100vh); /* --vh 값을 사용 */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  * {
+    box-sizing: border-box; /* 모든 요소에 박스 모델 적용 */
+  }
+`;
 
 export const TopMenu = styled.div`
                        display: flex;
@@ -73,5 +91,5 @@ input {
 `;
 
 export const SendImg = styled.div`
-                       align-content: center;
+    align-content: center;
 `;

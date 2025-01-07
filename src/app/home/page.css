@@ -34,6 +34,14 @@
 }
 
 @media (max-width:440px) {
+    html, body {
+        height: 100%;
+    }
+
+    body {
+        height: var(--vh, 100vh); /* --vh 값을 사용 */
+    }
+
     .intro{
         width: 90vw;
         margin-top: 15vh;

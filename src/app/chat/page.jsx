@@ -5,13 +5,15 @@ import Image from 'next/image';
 import { useState } from 'react';
 import ChatSomeone from '../components/ChatSomeone';
 import Timer from '../components/Timer';
-import { Background, Chat, TopMenu, ChatContainer, ChatInput, SendImg } from './page.style'
+import { Background, Chat, TopMenu, ChatContainer, ChatInput, SendImg, GlobalStyle } from './page.style'
 
 const ChatPage = () => {
     const router = useRouter();
     const [message, setMessage] = useState('');
 
     return (
+        <>
+        <GlobalStyle />
         <Background>
             <Chat>
                 <TopMenu>
@@ -46,6 +48,7 @@ const ChatPage = () => {
                 </ChatInput>
             </Chat>
         </Background>
+        </>
     )
 }
 
