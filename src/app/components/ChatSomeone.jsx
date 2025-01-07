@@ -6,7 +6,7 @@ const ChatSomeone = ({type, name, message, reaction}) => {
             <div className="profile"></div>
             <div className="detail" style={{textAlign: type=='me' ? 'right' : undefined}}>
                 <p className="name">{name}</p>
-                <p className={`message ${type} `}  style={{textAlign: type=='me' ? 'right' : undefined}}>{message}</p>
+                <p className={`message ${type} `}>{message}</p>
                 {
                     reaction ? (
                         <p className='reaction' style={{marginLeft: type == 'me' ? 'auto' : undefined}}>👍 {reaction}</p>
