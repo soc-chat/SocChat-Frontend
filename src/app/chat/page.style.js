@@ -64,6 +64,10 @@ height: 100vh;
 }
 `;
 
+export const ChatTitle = styled.p`
+color: white;
+`;
+
 export const ChatInput = styled.div`
 position: fixed;
 bottom: 0;

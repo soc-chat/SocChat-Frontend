@@ -26,6 +26,7 @@
 
 .message{
     background-color: #3072FF;
+    color: white;
     max-width: fit-content;
     width: 290px;
     margin-top: 5px;

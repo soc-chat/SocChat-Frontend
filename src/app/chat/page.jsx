@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import ChatSomeone from '../components/ChatSomeone';
 import Timer from '../components/Timer';
-import { Background, Chat, TopMenu, ChatContainer, ChatInput, SendImg, GlobalStyle } from './page.style'
+import { Background, Chat, TopMenu, ChatContainer, ChatInput, SendImg, GlobalStyle, ChatTitle } from './page.style'
 
 const ChatPage = () => {
     const router = useRouter();
@@ -21,7 +21,7 @@ const ChatPage = () => {
                         <button onClick={() => { router.push('/home') }}>
                             <Image src="/icons/arrow_left.png" alt="뒤로가기" width={30} height={30} />
                         </button>
-                        <p className='chat_title'>테스트 채팅방</p>
+                        <ChatTitle>테스트 채팅방</ChatTitle>
                     </div>
                     <Timer />
                 </TopMenu>
