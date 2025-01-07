@@ -38,7 +38,8 @@
 
 .message.me{
     border-radius: 15px 0px 15px 15px;
-    display: block;
+    display: flex;
+    margin-left: auto;
     text-align: right !important;
 }
 
