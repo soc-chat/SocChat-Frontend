@@ -6,7 +6,7 @@
 }
 
 .profile{
-    background-color: #d9d9d9;
+    background-color: #d9d9d9 !important;
     width: 45px;
     height: 45px;
     border-radius: 50%;
@@ -31,15 +31,15 @@
     margin-top: 5px;
     padding: 12px;
     font-size: 15px;
-    border-radius: 0 15 15 15;
+    border-radius: 0px 15px 15px 15px;
 }
 
 .message.me{
-    border-radius: 15 0 15 15;
+    border-radius: 15px 0px 15px 15px;
 }
 
 .reaction{
-    background-color: white;
+    background-color: white !important;
     max-width: fit-content;
     color: black;
     padding: 3px 10px 3px 5px;
