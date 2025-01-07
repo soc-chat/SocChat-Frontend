@@ -1,0 +1,49 @@
+.chatsomeone{
+    display: flex;
+    margin: 20px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.profile{
+    background-color: #d9d9d9;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin-top: 6px;
+}
+
+.detail{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.name{
+    margin: 0;
+    font-size: 14px;
+}
+
+.message{
+    background-color: #3072FF;
+    max-width: fit-content;
+    width: 290px;
+    margin-top: 5px;
+    padding: 12px;
+    font-size: 15px;
+    border-radius: 0 15 15 15;
+}
+
+.message.me{
+    border-radius: 15 0 15 15;
+}
+
+.reaction{
+    background-color: white;
+    max-width: fit-content;
+    color: black;
+    padding: 3px 10px 3px 5px;
+    border-radius: 30px;
+    font-size: 13px;
+    display: flex;
+}

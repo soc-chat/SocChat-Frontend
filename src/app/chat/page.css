@@ -1,0 +1,30 @@
+.background{
+    background-color: rgb(130, 130, 130);
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.chat{
+    user-select: none;
+    background-color: black;
+    width: 480px;
+    margin: auto;
+    height: 100vh;
+    padding: 1px;
+}
+
+.chat_container{
+    overflow-y: auto;
+    height: 100vh;
+}
+
+.chat_container::-webkit-scrollbar{
+    display: none;
+}
+
+@media (max-width:440px) {
+    .chat{
+        width: 100vw;
+    }
+}

@@ -3,6 +3,7 @@
 import './page.css'
 import Timer from "../components/Timer";
 import MainButton from '../components/MainButton';
+import Image from 'next/image';
 
 const Waiting = () => {
     return(
@@ -12,7 +13,7 @@ const Waiting = () => {
                 <Timer />
             </div>
             <div className="announce">
-                <img src="/icons/announce_icon.png" alt="공지" />
+                <Image src="/icons/announce_icon.png" alt="공지" width={14} height={10}/>
                 <p>공지 - 새벽 1시~5시까지 서버 점검 예정입니다.</p>
             </div>
             <div className="desc">
@@ -22,7 +23,7 @@ const Waiting = () => {
                     <p style={{color:'#a8a8a8'}}>진짜 익명 채팅방, 함께 즐겨봐요!</p>
                 </div>
                 <div className='socchat_logo'>
-                    <img src="/images/socchat_logo_dark.png" alt="로고입니다" />
+                    <Image src="/images/socchat_logo_dark.png" alt="로고입니다" width={130} height={130}/>
                 </div>
                 <div className="mainbtn">
                     <MainButton color={'#4c4c4c'} textColor={'#a8a8a8'} value={'나가기'} onClick={()=>{console.log('나가기 클릭')}}/>
