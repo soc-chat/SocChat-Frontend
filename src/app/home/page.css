@@ -49,11 +49,12 @@
     }
 
     .mainbtn{
-        position: static;
-        bottom: auto; /* 하단에서의 거리 초기화 */
-        left: auto; /* 좌측 위치 초기화 */
-        transform: none; /* 변형 초기화 */
-        width: 100vh;
-        margin-top: 55vh;
+        width: 100vw;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 5vh;
+        margin: auto;
+        display: flex;
+        justify-content: center;
     }
 }

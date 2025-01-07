@@ -71,7 +71,7 @@
     body {
         height: var(--vh, 100vh); /* --vh 값을 사용 */
     }
-    
+
     .desc{
         width: 90vw;
         margin-top: 17vh;
@@ -79,13 +79,10 @@
     }
 
     .mainbtn{
-        position: static;
-        bottom: auto; /* 하단에서의 거리 초기화 */
-        left: auto; /* 좌측 위치 초기화 */
-        transform: none; /* 변형 초기화 */
         width: 100vw;
-        margin-top: 54vh;
-        display: flex;
-        align-content: center;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 5vh;
+        margin: auto;
     }
 }
