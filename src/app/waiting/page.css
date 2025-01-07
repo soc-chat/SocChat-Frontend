@@ -55,8 +55,11 @@
 
 .mainbtn{
     margin: auto;
-    width: 440px;
-    margin-top: 10vh;
+    width: 390px;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10vh;
 }
 
 .socchat_logo{
@@ -73,6 +76,11 @@
     }
 
     .mainbtn{
+        position: static;
+        bottom: auto; /* 하단에서의 거리 초기화 */
+        left: auto; /* 좌측 위치 초기화 */
+        transform: none; /* 변형 초기화 */
+        margin: auto;
         width: 100vw;
         margin-top: 15vh;
         display: flex;
