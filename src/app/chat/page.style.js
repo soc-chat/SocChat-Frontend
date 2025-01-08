@@ -36,16 +36,16 @@ justify-content: space-between;
 `;
 
 export const Background = styled.div`
-                          background-color: rgb(130, 130, 130);
+background-color: rgb(253 253 253 / var(--tw-bg-opacity, 1));
 height: 100vh;
 margin: 0;
 overflow: hidden;
 `;
 
 export const Chat = styled.div`
-                    user-select: none;
+user-select: none;
 background-color: black;
-width: 480px;
+width: 440px;
 margin: auto;
 height: 100vh;
 padding: 1px;
@@ -56,7 +56,7 @@ padding: 1px;
 `;
 
 export const ChatContainer = styled.div`
-                             overflow-y: auto;
+overflow-y: auto;
 height: 100vh;
 
 &::-webkit-scrollbar {
@@ -73,7 +73,7 @@ position: fixed;
 bottom: 0;
 height: 60px;
 background-color: #3B3B3B !important;
-width: 479px;
+width: 439px;
 display: flex;
 align-content: center;
 padding: 10px 20px;

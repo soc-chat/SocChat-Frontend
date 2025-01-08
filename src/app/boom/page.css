@@ -1,5 +1,5 @@
 .background{
-    background-color: rgb(130, 130, 130);
+    background-color: rgb(253 253 253 / var(--tw-bg-opacity, 1));
     height: 100vh;
     margin: 0;
     overflow: hidden;
@@ -8,7 +8,7 @@
 .waiting{
     background-color: black;
     height: 100vh;
-    width: 480px;
+    width: 440px;
     user-select: none;
     overflow: hidden;
     margin: auto;
@@ -59,7 +59,7 @@
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 10vh;
+    bottom: 8vh;
 }
 
 
