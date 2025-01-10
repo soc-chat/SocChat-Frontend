@@ -1,14 +1,21 @@
-.socket_message{
-    border: 1px solid white;
-    box-shadow: 
-    0 0 1px #0ff,    /* 내부 광원 */
-    0 0 2px #0ff,    /* 첫 번째 외부 광원 */
-    0 0 3px #0ff,    /* 두 번째 외부 광원 */
-    0 0 7px #0ff;    /* 가장 밝은 외부 광원 */
-    transition: all 0.3s ease-in-out;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    margin-left: 5px;
-    padding: 10px;
-    width: fit-content;
+.splash{
+    display: flex;
+    align-content: center;
+    height: 100vh;
+    user-select: none;
+    background-color: black;
+}
+
+.socchat_logo{
+    margin: auto;
+}
+
+@media (max-width:440px) {
+    html, body {
+        height: 100%;
+    }
+
+    body {
+        height: var(--vh, 100vh); /* --vh 값을 사용 */
+    }
 }
