@@ -25,7 +25,7 @@ const ChatPage = () => {
         <>
         <GlobalStyle />
         <Background>
-            <Chat>
+            <Chat onContextMenu={(e)=>{e.preventDefault()}}>
                 <TopMenu>
                     <div className="left">
                         <button onClick={() => { router.push('/home') }}>
