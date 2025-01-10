@@ -2,10 +2,10 @@
 
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ChatSomeone from '../components/ChatSomeone';
 import Timer from '../components/Timer';
-import { Background, Chat, TopMenu, ChatContainer, ChatInput, SendImg, GlobalStyle, ChatTitle } from './page.style'
+import { Background, Chat, TopMenu, ChatContainer, ChatInput, SendImg, GlobalStyle, ChatTitle, ContextMenu } from './page.style'
 
 const ChatPage = () => {
     const router = useRouter();
@@ -17,8 +17,6 @@ const ChatPage = () => {
         e.preventDefault();
         setContextMenu({ x: e.pageX, y: e.pageY, target });
     };
-
-    const closeContextMenu = () => setContextMenu(null);
 
 
     return (
@@ -35,7 +33,7 @@ const ChatPage = () => {
                     </div>
                     <Timer />
                 </TopMenu>
-                <ChatContainer>
+                <ChatContainer onScroll={()=>{setContextMenu(null)}}>
                     <ChatSomeone type={'who'} name={'감자튀김빌런'} message={'감자튀김 먹고싶다감자튀김 먹고싶다감자튀김 먹고싶다감자튀김 먹고싶다감자튀김 먹고싶다감자튀김 먹고싶다감자튀김 먹고싶다'} reaction={2} handleContextMenu={handleContextMenu} />
                     <ChatSomeone type={'me'} name={'감자튀김싫어'} message={'ㅁㄴㅇㄹㅁㄴㅇㄹ'} reaction={1} handleContextMenu={handleContextMenu}/>
                     <ChatSomeone type={'who'} name={'감자튀김빌런'} message={'감자튀김 먹고싶다감자튀김 먹고싶다감자튀김 먹고싶다감자튀김 먹고싶다감자튀김 먹고싶다감자튀김 먹고싶다감자튀김 먹고싶다'} reaction={2} handleContextMenu={handleContextMenu} />
@@ -59,12 +57,12 @@ const ChatPage = () => {
             </Chat>
             {
                 contextMenu && (
-                    <div className='contextMenu' style={{position:'fixed', left:contextMenu.x, top:contextMenu.y, backgroundColor: 'white', color:'black'}}>
+                    <div className='contextMenu' style={{ position: 'fixed', left: contextMenu.x, top: contextMenu.y, backgroundColor: 'white', color: 'black' }}>
                         <table>
                             <tbody>
-                                <tr onClick={()=>{setContextMenu(null)}}>닫기</tr>
-                                <tr>감정표현</tr>
-                                <tr>신고</tr>
+                                <tr onClick={()=>{setContextMenu(null)}}><td>닫기</td></tr>
+                                <tr><td>감정표현</td></tr>
+                                <tr><td>신고</td></tr>
                             </tbody>
                         </table>
                     </div>

@@ -98,3 +98,11 @@ input {
 export const SendImg = styled.div`
     align-content: center;
 `;
+
+// export const ContextMenu = styled.div`
+//   position:'fixed';
+//   left: ${({ contextMenu }) => (contextMenu ? `${contextMenu.x}px` : 0)};
+//   top: ${({ contextMenu }) => (contextMenu ? `${contextMenu.y}px` : 0)};
+//   background-color: white; 
+//   color: black;
+// `
