@@ -1,0 +1,32 @@
+.contextMenu{
+    width: 95px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.context_items{
+    width: 75px;
+    color: #979797;
+    font-size: 15px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3px;
+}
+
+.react_icon{
+    background-color: #F2F2F2;
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+    padding: 3px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.react_container{
+    height: 40px;
+    align-items: center;
+}

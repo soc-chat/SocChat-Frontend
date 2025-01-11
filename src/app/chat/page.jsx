@@ -5,7 +5,8 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import ChatSomeone from '../components/ChatSomeone';
 import Timer from '../components/Timer';
-import { Background, Chat, TopMenu, ChatContainer, ChatInput, SendImg, GlobalStyle, ChatTitle, ContextMenu } from './page.style'
+import ContextMenu from '../components/ContextMenu';
+import { Background, Chat, TopMenu, ChatContainer, ChatInput, SendImg, GlobalStyle, ChatTitle } from './page.style'
 
 const ChatPage = () => {
     const router = useRouter();
@@ -58,12 +59,7 @@ const ChatPage = () => {
             {
                 contextMenu && (
                     <div className='contextMenu' style={{ position: 'fixed', left: contextMenu.x, top: contextMenu.y, backgroundColor: 'white', color: 'black' }}>
-                        <table>
-                            <tbody>
-                                <tr><td>감정표현</td></tr>
-                                <tr><td>신고</td></tr>
-                            </tbody>
-                        </table>
+                        <ContextMenu />
                     </div>
                 )
             }
