@@ -23,7 +23,7 @@ const ChatPage = () => {
         <>
         <GlobalStyle />
         <Background>
-            <Chat onContextMenu={(e)=>{e.preventDefault()}}>
+            <Chat onContextMenu={(e)=>{e.preventDefault()}} onClick={()=>{setContextMenu(null)}}>
                 <TopMenu>
                     <div className="left">
                         <button onClick={() => { router.push('/home') }}>
@@ -60,7 +60,6 @@ const ChatPage = () => {
                     <div className='contextMenu' style={{ position: 'fixed', left: contextMenu.x, top: contextMenu.y, backgroundColor: 'white', color: 'black' }}>
                         <table>
                             <tbody>
-                                <tr onClick={()=>{setContextMenu(null)}}><td>닫기</td></tr>
                                 <tr><td>감정표현</td></tr>
                                 <tr><td>신고</td></tr>
                             </tbody>
