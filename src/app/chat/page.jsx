@@ -14,6 +14,7 @@ import SockJS from 'sockjs-client';
 const ChatPage = () => {
     const router = useRouter();
     const clientRef = useRef(null);
+    const messageEndRef = useRef(null)
 
     const [messages, setMessages] = useState([]);
 
@@ -88,6 +89,10 @@ const ChatPage = () => {
         }
     }
 
+    useEffect(()=>{
+        messageEndRef.current.scrollIntoView({behavior: 'smooth'})//부드럽게 특정요소가 보이도록 스크롤
+    }, [messages])
+
     const handleKeyDown = (e) => {
         if(e.key === 'Enter'){
             sendMessage();
@@ -108,12 +113,13 @@ const ChatPage = () => {
                     </div>
                     <Timer />
                 </TopMenu>
-                <ChatContainer id="chat-messages" onScroll={()=>{setContextMenu(null)}}>
+                <ChatContainer id="chat-messages" onScroll={()=>{setContextMenu(null)}} >
                     {
                         messages.map((item, index) => (
                             <ChatSomeone key={index} name={item.userId} message={item.content} handleContextMenu={handleContextMenu}/>
                         ))
                     }
+                    <div ref={messageEndRef}></div>
                 </ChatContainer>
                 <ChatInput>
                     <input
