@@ -57,7 +57,7 @@ padding: 1px;
 
 export const ChatContainer = styled.div`
 overflow-y: auto;
-height: 100vh;
+height: 83vh;
 
 &::-webkit-scrollbar {
     display: none;
