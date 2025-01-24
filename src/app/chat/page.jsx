@@ -7,70 +7,23 @@ import ChatSomeone from '../components/ChatSomeone';
 import Timer from '../components/Timer';
 import ContextMenu from '../components/ContextMenu';
 import { Background, Chat, TopMenu, ChatContainer, ChatInput, SendImg, GlobalStyle, ChatTitle } from './page.style'
+import WithWebSocket from './withWebSocket';
 
-import { Client } from '@stomp/stompjs';
-import SockJS from 'sockjs-client';
-
-const ChatPage = () => {
+const ChatPage = ({messages, sendMessage}) => {
     const router = useRouter();
-    const clientRef = useRef(null);
     const messageEndRef = useRef(null)
 
-    const [messages, setMessages] = useState([]);
-
     const [message, setMessage] = useState('');
-
     const [contextMenu, setContextMenu] = useState(null); // null or { x, y, target }
-
-    const showMessage = (message) => {
-        const parsedMessage = JSON.parse(message.body); // 메시지 파싱
-        console.log('파싱된 메시지:', parsedMessage);
-
-        setMessages((prev) => [...prev, parsedMessage]); // 상태 업데이트
-    };
-
-    useEffect(()=>{
-        const socket = new SockJS('https://socchat-api.mya.ong/stomp/chat');
-        const client = new Client({
-            webSocketFactory: () => socket,
-            connectHeaders: {},
-            debug: function (str) {
-                console.log(str);
-            },
-            reconnectDelay: 5000,
-            heartbeatIncoming: 4000,
-            heartbeatOutgoing: 4000,
-        })
-
-        client.onConnect = function (frame) {
-            console.log("Connected: " + frame);
-            client.subscribe("/sub/chat/room/1", (message) => showMessage(message));
-        };
-    
-
-        client.onDisconnect = () => {
-            console.log('웹소켓 disconnect');
-        }
-        
-        //활성화
-        client.activate();
-        clientRef.current = client;
-
-        return () => { 
-            client.deactivate();
-        }
-    }, [])
 
     const handleContextMenu = (e, target) => {
         e.preventDefault();
         setContextMenu({ x: e.pageX, y: e.pageY, target });
     };
 
-    const sendMessage = () => {
-
+    const handleSendMessage = () => {
         setMessage(message.trim()); //양쪽 공백 제거
-
-        if (message && clientRef) {
+        if (message) {
           const chatMessage = {
             channel: 1, // Adjusted to a number (Long in backend)
             content: message, // Updated to match 'content' field in DTO
@@ -79,11 +32,7 @@ const ChatPage = () => {
             parentMessageId: null, // Assuming no parent message for now, update as needed
             type: "MESSAGE", // Adjusted to 'type' field, assuming "TEXT" as an example
           };
-          clientRef.current.publish({
-            destination: "/pub/send",
-            body: JSON.stringify(chatMessage),
-          });
-
+          sendMessage(chatMessage);
           setMessage('');
           document.getElementById('chat-input').focus();
         }
@@ -95,7 +44,7 @@ const ChatPage = () => {
 
     const handleKeyDown = (e) => {
         if(e.key === 'Enter'){
-            sendMessage();
+            handleSendMessage();
         }
     }
 
@@ -130,7 +79,7 @@ const ChatPage = () => {
                         onKeyDown={handleKeyDown}
                         value={message}
                     />
-                    <SendImg onClick={()=>{sendMessage()}}>
+                    <SendImg onClick={()=>{handleSendMessage()}}>
                         <Image src="/icons/carbon_send-filled.png" alt="보내기" width={30} height={10} />
                     </SendImg>
                 </ChatInput>
@@ -147,4 +96,4 @@ const ChatPage = () => {
     )
 }
 
-export default ChatPage;
+export default WithWebSocket(ChatPage, 1);
