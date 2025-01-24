@@ -19,7 +19,7 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const TopMenu = styled.div`
-                       display: flex;
+display: flex;
 height: 10vh;
 padding: 0 20px;
 align-items: center;
@@ -40,6 +40,7 @@ background-color: rgb(253 253 253 / var(--tw-bg-opacity, 1));
 height: 100vh;
 margin: 0;
 overflow: hidden;
+
 `;
 
 export const Chat = styled.div`
@@ -50,6 +51,7 @@ margin: auto;
 height: 100vh;
 padding: 1px;
 
+
 @media (max-width: 440px) {
     width: 100vw;
 }
@@ -58,6 +60,7 @@ padding: 1px;
 export const ChatContainer = styled.div`
 overflow-y: auto;
 height: 82vh;
+filter: ${(props) => (props.contextMenu ? 'blur(5px)' : 'none')};
 
 &::-webkit-scrollbar {
     display: none;

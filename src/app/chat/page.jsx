@@ -62,7 +62,7 @@ const ChatPage = ({messages, sendMessage}) => {
                     </div>
                     <Timer />
                 </TopMenu>
-                <ChatContainer id="chat-messages" onScroll={()=>{setContextMenu(null)}} >
+                <ChatContainer id="chat-messages" contextMenu={contextMenu} onScroll={()=>{setContextMenu(null)}} >
                     {
                         messages.map((item, index) => (
                             <ChatSomeone key={index} name={item.userId} message={item.content} handleContextMenu={handleContextMenu}/>
