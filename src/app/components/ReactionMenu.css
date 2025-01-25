@@ -1,0 +1,11 @@
+.ReactionMenu{
+    display: flex;
+    width: 210px;
+    padding-left: 6px;
+    justify-content: space-around;
+}
+
+.react_icon{
+    font-size: 20px;
+    cursor: pointer;
+}

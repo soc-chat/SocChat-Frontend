@@ -6,6 +6,7 @@ import { useState, useEffect, useRef } from 'react';
 import ChatSomeone from '../components/ChatSomeone';
 import Timer from '../components/Timer';
 import ContextMenu from '../components/ContextMenu';
+import ReactionMenu from '../components/ReactionMenu';
 import { Background, Chat, TopMenu, ChatContainer, ChatInput, SendImg, GlobalStyle, ChatTitle } from './page.style'
 import WithWebSocket from './withWebSocket';
 
@@ -18,7 +19,17 @@ const ChatPage = ({messages, sendMessage}) => {
 
     const handleContextMenu = (e, target) => {
         e.preventDefault();
-        setContextMenu({ x: e.pageX, y: e.pageY, target });
+        console.log(target);
+        if (target) {
+            const rect = target.getBoundingClientRect(); 
+            console.log(rect);
+            setContextMenu({
+                x: rect.left,
+                y: rect.bottom, 
+                reaction: rect.top,
+                target,
+            });
+        }
     };
 
     const handleSendMessage = () => {
@@ -34,13 +45,14 @@ const ChatPage = ({messages, sendMessage}) => {
           };
           sendMessage(chatMessage);
           setMessage('');
+          messageEndRef.current.scrollIntoView({behavior: 'smooth'})
           document.getElementById('chat-input').focus();
         }
     }
 
-    useEffect(()=>{
-        messageEndRef.current.scrollIntoView({behavior: 'smooth'})//부드럽게 특정요소가 보이도록 스크롤
-    }, [messages])
+    // useEffect(()=>{
+    //     messageEndRef.current.scrollIntoView({behavior: 'smooth'})//부드럽게 특정요소가 보이도록 스크롤
+    // }, [messages])
 
     const handleKeyDown = (e) => {
         if(e.key === 'Enter'){
@@ -65,7 +77,7 @@ const ChatPage = ({messages, sendMessage}) => {
                 <ChatContainer id="chat-messages" contextMenu={contextMenu} onScroll={()=>{setContextMenu(null)}} >
                     {
                         messages.map((item, index) => (
-                            <ChatSomeone key={index} name={item.userId} message={item.content} handleContextMenu={handleContextMenu}/>
+                            <ChatSomeone key={index} name={item.userId} message={item.content} handleContextMenu={handleContextMenu} contextMenu={contextMenu}/>
                         ))
                     }
                     <div ref={messageEndRef}></div>
@@ -86,9 +98,14 @@ const ChatPage = ({messages, sendMessage}) => {
             </Chat>
             {
                 contextMenu && (
-                    <div className='contextMenu' style={{ position: 'fixed', left: contextMenu.x, top: contextMenu.y, backgroundColor: 'white', color: 'black' }}>
-                        <ContextMenu />
-                    </div>
+                    <>
+                        <div className="reaction" style={{ position: 'fixed', left: contextMenu.x, top: contextMenu.reaction-45, backgroundColor: 'white', color: 'black' }}>
+                            <ReactionMenu />
+                        </div>
+                        <div className='contextMenu' style={{ position: 'fixed', left: contextMenu.x, top: contextMenu.y+10, backgroundColor: 'white', color: 'black' }}>
+                            <ContextMenu />
+                        </div>
+                    </>
                 )
             }
         </Background>

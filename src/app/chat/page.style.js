@@ -60,7 +60,6 @@ padding: 1px;
 export const ChatContainer = styled.div`
 overflow-y: auto;
 height: 82vh;
-filter: ${(props) => (props.contextMenu ? 'blur(5px)' : 'none')};
 
 &::-webkit-scrollbar {
     display: none;
