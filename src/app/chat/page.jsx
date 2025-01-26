@@ -36,22 +36,22 @@ const ChatPage = ({messages, sendMessage}) => {
         setMessage(message.trim()); //양쪽 공백 제거
         if (message) {
           const chatMessage = {
-            id:1,
+            id: 1234,
             channel: 1, // Adjusted to a number (Long in backend)
             content: message, // Updated to match 'content' field in DTO
-            userId: 'asdf', // Assuming a fixed userId, update this as per your logic
+            userId: "asdf", // Assuming a fixed userId, update this as per your logic
             type: "MESSAGE", // Adjusted to 'type' field, assuming "TEXT" as an example
           };
           sendMessage(chatMessage);
           setMessage('');
-          messageEndRef.current.scrollIntoView({behavior: 'smooth'})
+        //   messageEndRef.current.scrollIntoView({behavior: 'smooth'})
           document.getElementById('chat-input').focus();
         }
     }
 
-    // useEffect(()=>{
-    //     messageEndRef.current.scrollIntoView({behavior: 'smooth'})//부드럽게 특정요소가 보이도록 스크롤
-    // }, [messages])
+    useEffect(()=>{
+        messageEndRef.current.scrollIntoView({behavior: 'smooth'})//부드럽게 특정요소가 보이도록 스크롤
+    }, [messages])
 
     const handleKeyDown = (e) => {
         if(e.key === 'Enter'){
