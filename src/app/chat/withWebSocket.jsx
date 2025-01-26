@@ -29,7 +29,7 @@ const WithWebSocket = (ChatPage, channelId) => {
 
             client.onConnect = function (frame) {
                 console.log("Connected: " + frame);
-                client.subscribe(`/sub/chat/room/${channelId}`, (message) => showMessage(message));
+                client.subscribe(`/sub/chat/room/${channelId}/chat`, (message) => showMessage(message));
             };
         
 

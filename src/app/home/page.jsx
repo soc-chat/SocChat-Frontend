@@ -1,24 +1,29 @@
-'use client';
-
-import './page.css';
-import MainButton from '../components/MainButton';
+import './page.css'
+import Image from 'next/image'
 
 const Home = () => {
-    const inputEmail = () => {
-        console.log('이메일을 입력해주세요.');
-    }
     return(
         <div className="background">
-          <div className="home">
-            <div className="intro">
-                <p style={{color:'#868686'}}>&apos;진짜 랜덤&apos;</p>
-                <p>재밌는 <span style={{color:'#265BCC'}}>시간 제한</span></p>
-                <p>단체 채팅</p>
+            <div className="home">
+                <div className="header">
+                    <Image src='/images/socchat_logo.png' width={30} height={30} />
+                    <div className="searchBox">
+                        <input type="text" placeholder='제목 또는 태그를 검색하세요' />
+                        <div className="search_icon"><Image src='/icons/material-symbols_search.png' width={23} height={23}/></div>
+                    </div>
+                    <div className="chat_tag">
+                        <p>#기타</p>
+                        <p>#노래방</p>
+                        <p>#아무말</p>
+                        <p>#공부</p>
+                        <p>#개발</p>
+                    </div>
+                </div>
+                <div className="banner"></div>
+                <div className="best_room">
+                    <h4>인기 채팅방</h4>
+                </div>
             </div>
-            <div className="mainbtn">
-                <MainButton value={'이메일 입력하고 소식 받기'} color={'#3072ff'} onClick={inputEmail}/>
-            </div>
-          </div>
         </div>
     )
 }

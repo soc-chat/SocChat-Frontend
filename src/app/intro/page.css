@@ -1,0 +1,60 @@
+.background{
+    background-color: rgb(253 253 253 / var(--tw-bg-opacity, 1));
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.Intro{
+    user-select: none;
+    background-color: black;
+    width: 440px;
+    margin: auto;
+    height: 100vh;
+    padding: 1px;
+}
+
+.intro{
+    margin-left: 2vw;
+    width: 420px;
+    font-size: 30px;
+    font-weight: 700;
+    color: white;
+    margin-top: 15vh;
+    overflow: hidden;
+}
+
+.mainbtn{
+    margin: auto;
+    width: 390px;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 8vh;
+}
+
+@media (max-width:440px) {
+    html, body {
+        height: 100%;
+    }
+
+    body {
+        height: var(--vh, 100vh); /* --vh 값을 사용 */
+    }
+
+    .intro{
+        width: 90vw;
+        margin-top: 15vh;
+        margin-left: 20px;
+    }
+
+    .mainbtn{
+        width: 100vw;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 5vh;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+    }
+}

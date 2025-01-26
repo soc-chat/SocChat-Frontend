@@ -16,7 +16,7 @@ const Boom = () => {
                     <p style={{color:'#a8a8a8'}}>다음에 다시 만나요</p>
                 </div>
                 <div className="mainbtn">
-                    <MainButton color={'#3072FF'} value={'소개보기'} onClick={()=>{router.push('/home')}}/>
+                    <MainButton color={'#3072FF'} value={'소개보기'} onClick={()=>{router.push('/intro')}}/>
                 </div>
             </div>
         </div>

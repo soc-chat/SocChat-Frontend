@@ -36,11 +36,10 @@ const ChatPage = ({messages, sendMessage}) => {
         setMessage(message.trim()); //양쪽 공백 제거
         if (message) {
           const chatMessage = {
+            id:1,
             channel: 1, // Adjusted to a number (Long in backend)
             content: message, // Updated to match 'content' field in DTO
-            isReply: false, // Assuming it's not a reply, adjust as needed
-            userId: 1, // Assuming a fixed userId, update this as per your logic
-            parentMessageId: null, // Assuming no parent message for now, update as needed
+            userId: 'asdf', // Assuming a fixed userId, update this as per your logic
             type: "MESSAGE", // Adjusted to 'type' field, assuming "TEXT" as an example
           };
           sendMessage(chatMessage);

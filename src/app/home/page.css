@@ -11,26 +11,65 @@
     width: 440px;
     margin: auto;
     height: 100vh;
-    padding: 1px;
 }
 
-.intro{
-    margin-left: 2vw;
-    width: 420px;
-    font-size: 30px;
-    font-weight: 700;
+.header{
+    padding: 25px;
+}
+
+.searchBox {
+    display: flex;
+    width: 100%;
+    background-color: #3B3B3B;
+    height: 60px;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 13px;
+    padding-right: 13px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.searchBox input {
+    background-color: #3B3B3B;
     color: white;
-    margin-top: 15vh;
-    overflow: hidden;
+    outline: none;
+    width: 85%;
 }
 
-.mainbtn{
-    margin: auto;
-    width: 390px;
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 8vh;
+.searchBox input::placeholder{
+    color: #7E7E7E;
+}
+
+.search_icon {
+    cursor: pointer;
+}
+
+.chat_tag{
+    display: flex;
+    color: #979797;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.chat_tag p {
+    cursor: pointer;
+}
+
+.banner{
+    width: 100%;
+    background-color: white;
+    height: 75px;
+}
+
+.best_room{
+    padding: 25px;
+}
+
+.best_room h4 {
+    font-size: 18px;
+    color: #A8A8A8;
 }
 
 @media (max-width:440px) {
@@ -42,19 +81,8 @@
         height: var(--vh, 100vh); /* --vh 값을 사용 */
     }
 
-    .intro{
-        width: 90vw;
-        margin-top: 15vh;
-        margin-left: 20px;
+    .header{
+        width: 100vw;
     }
 
-    .mainbtn{
-        width: 100vw;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: 5vh;
-        margin: auto;
-        display: flex;
-        justify-content: center;
-    }
 }
