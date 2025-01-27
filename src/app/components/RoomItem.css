@@ -1,0 +1,25 @@
+.roomItem {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.roomItem .num {
+    margin-right: 20px;
+    color: #A8A8A8;
+}
+
+.roomItem p {
+    font-size: 15px;
+}
+
+.room_detail p {
+    margin-bottom: 6px;
+    color: #A8A8A8;
+}
+
+.room_name{
+    margin-left: 3px;
+}
