@@ -15,7 +15,9 @@ const WithWebSocket = (ChatPage, channelId) => {
         };
 
         useEffect(()=>{
-            const socket = new SockJS('https://socchat-api.mya.ong/stomp/chat');
+            if(!channelId)return;
+
+            const socket = new SockJS(process.env.NEXT_PUBLIC_WEBSOCKET_PORT);
             const client = new Client({
                 webSocketFactory: () => socket,
                 connectHeaders: {},
@@ -44,7 +46,7 @@ const WithWebSocket = (ChatPage, channelId) => {
             return () => { 
                 client.deactivate();
             }
-        }, [])
+        }, [channelId])
 
         const sendMessage = (chatMessage) => {
             if (clientRef.current) {

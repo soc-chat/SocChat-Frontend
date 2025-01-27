@@ -8,6 +8,7 @@ const WithWebSocket = (HomePage) => {
         const [rooms, setRooms] = useState([]);
 
         const showRoom = (rooms) => {
+            console.log(rooms);
             const parsedRoom = JSON.parse(rooms.body); // 메시지 파싱
             console.log('파싱된 메시지:', parsedRoom);
 
@@ -15,7 +16,7 @@ const WithWebSocket = (HomePage) => {
         };
 
         useEffect(()=>{
-            const socket = new SockJS('https://socchat-api.mya.ong/stomp/chat');
+            const socket = new SockJS(process.env.NEXT_PUBLIC_WEBSOCKET_PORT);
             const client = new Client({
                 webSocketFactory: () => socket,
                 connectHeaders: {},
