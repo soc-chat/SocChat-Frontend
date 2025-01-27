@@ -2,8 +2,8 @@
 
 import './RoomItem.css';
 
-const RoomItem = ({num, name, description, expireTime}) => {
-    const expire = Number(expireTime);
+const RoomItem = ({num, name, expireTime}) => {
+    const expire = Number(expireTime);  
 
     return(
         <div className="roomItem">

@@ -3,34 +3,7 @@
 import './page.css'
 import Image from 'next/image'
 import RoomItem from '../components/RoomItem'
-import WithWebSocket from './withWebSocket'
-
-const ChatRoomDto = [
-    {
-        channel: 1,
-        name: 'Socchat합시다!',
-        image: '',
-        description: '우리모두 Socchat 합시다!',
-        expireTime: '10',
-        startTime: ''
-    },
-    {
-        channel: 2,
-        name: '윤하 포인트니모 곡 어떻게 생각해?',
-        image: '',
-        description: '좋다',
-        expireTime: '20',
-        startTime: ''
-    },
-    {
-        channel: 3,
-        name: 'ㅁㄴㅇㄻㄴㅇㄹ!',
-        image: '',
-        description: 'ㅁㄴㅇㄹ',
-        expireTime: '24',
-        startTime: ''
-    }
-]
+import WithFetch from './WithFetch'
 
 const Home = ({rooms}) => {
     return(
@@ -54,14 +27,9 @@ const Home = ({rooms}) => {
                 <div className="best_room">
                     <h4>인기 채팅방</h4>
                     {
-                        ChatRoomDto.map((item, index) => (
-                            <RoomItem key={item.channel} num={index} name={item.name} description={item.description} expireTime={item.expireTime} />
+                        rooms.map((item, index) => (
+                            <RoomItem key={index} num={index} name={item.name} image={item.image} description={item.description} startTime={item.startTime} expireTime={item.expireTime}/>
                         ))
-                    }
-                    {
-                        rooms.map((item) => {
-                            console.log(item);
-                        })
                     }
                 </div>
             </div>
@@ -69,4 +37,4 @@ const Home = ({rooms}) => {
     )
 }
 
-export default WithWebSocket(Home);
+export default WithFetch(Home);
