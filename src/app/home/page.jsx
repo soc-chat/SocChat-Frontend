@@ -37,7 +37,7 @@ const Home = ({rooms}) => {
         <div className="background">
             <div className="home">
                 <div className="header">
-                    <Image src='/images/socchat_logo.png' alt='logo' width={30} height={30} />
+                    <Image src='/images/socchat_logo.png' alt='logo' width={30} height={30} style={{ width: 30, height: "auto" }} />
                     <div className="searchBox">
                         <input type="text" placeholder='제목 또는 태그를 검색하세요' />
                         <div className="search_icon"><Image src='/icons/material-symbols_search.png' alt='search_icon' width={23} height={23}/></div>
