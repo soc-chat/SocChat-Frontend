@@ -1,3 +1,5 @@
+'use client'
+
 import './page.css'
 import Image from 'next/image'
 import RoomItem from '../components/RoomItem'

@@ -4,8 +4,10 @@ import './page.css'
 import Timer from "../components/Timer";
 import MainButton from '../components/MainButton';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 const Waiting = () => {
+    const router = useRouter();
     return(
         <div className="background">
         <div className="waiting">
@@ -26,7 +28,7 @@ const Waiting = () => {
                     <Image src="/images/socchat_logo_dark.png" alt="로고입니다" width={130} height={130}/>
                 </div>
                 <div className="mainbtn">
-                    <MainButton color={'#4c4c4c'} textColor={'#a8a8a8'} value={'나가기'} onClick={()=>{console.log('나가기 클릭')}}/>
+                    <MainButton color={'#4c4c4c'} textColor={'#a8a8a8'} value={'나가기'} onClick={()=>{router.push('/home')}}/>
                 </div>
             </div>
         </div>
