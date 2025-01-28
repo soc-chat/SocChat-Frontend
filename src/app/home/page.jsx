@@ -25,7 +25,7 @@ const Home = ({rooms}) => {
                 </div>
                 <div className="banner"></div>
                 <div className="best_room">
-                    <h4>인기 채팅방</h4>
+                    <h4>전체 채팅방</h4>
                     {
                         rooms.map((item, index) => (
                             <RoomItem key={index} num={index} name={item.name} image={item.image} description={item.description} startTime={item.startTime} expireTime={item.expireTime}/>

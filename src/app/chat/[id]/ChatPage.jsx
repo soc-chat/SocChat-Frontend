@@ -1,21 +1,29 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
-import ChatSomeone from '../components/ChatSomeone';
-import Timer from '../components/Timer';
-import ContextMenu from '../components/ContextMenu';
-import ReactionMenu from '../components/ReactionMenu';
+import ChatSomeone from '../../components/ChatSomeone';
+import Timer from '../../components/Timer';
+import ContextMenu from '../../components/ContextMenu';
+import ReactionMenu from '../../components/ReactionMenu';
 import { Background, Chat, TopMenu, ChatContainer, ChatInput, SendImg, GlobalStyle, ChatTitle } from './page.style'
-import WithWebSocket from './withWebSocket';
+import { useRouter } from 'next/navigation';
 
-const ChatPage = ({messages, sendMessage}) => {
-    const router = useRouter();
+
+const ChatPage = ({messages, sendMessage, channelId, channelData}) => {
+    const router = useRouter(); //navigate
+    
     const messageEndRef = useRef(null)
 
     const [message, setMessage] = useState('');
     const [contextMenu, setContextMenu] = useState(null); // null or { x, y, target }
+
+    useEffect(()=>{
+        if(!channelData){
+            alert('존재하지않는 채팅방입니다.')
+            router.push('/home');
+        }
+    },[channelId])
 
     const handleContextMenu = (e, target) => {
         e.preventDefault();
@@ -37,7 +45,7 @@ const ChatPage = ({messages, sendMessage}) => {
         if (message) {
           const chatMessage = {
             id: 1234,
-            channel: 1, // Adjusted to a number (Long in backend)
+            channel: channelId, // Adjusted to a number (Long in backend)
             content: message, // Updated to match 'content' field in DTO
             userId: "asdf", // Assuming a fixed userId, update this as per your logic
             type: "MESSAGE", // Adjusted to 'type' field, assuming "TEXT" as an example
@@ -69,9 +77,9 @@ const ChatPage = ({messages, sendMessage}) => {
                         <button onClick={() => { router.push('/home') }}>
                             <Image src="/icons/arrow_left.png" alt="뒤로가기" width={30} height={30} />
                         </button>
-                        <ChatTitle>테스트 채팅방</ChatTitle>
+                        <ChatTitle>{channelData.name}</ChatTitle>
                     </div>
-                    <Timer />
+                    <Timer expireTime={channelData.expireTime}/>
                 </TopMenu>
                 <ChatContainer id="chat-messages" contextMenu={contextMenu} onScroll={()=>{setContextMenu(null)}} >
                     {
@@ -112,4 +120,4 @@ const ChatPage = ({messages, sendMessage}) => {
     )
 }
 
-export default WithWebSocket(ChatPage, 1);
+export default ChatPage;
