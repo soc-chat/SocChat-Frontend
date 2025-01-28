@@ -53,7 +53,6 @@ const useWebSocket = (channelId) => {
 
             if (res.ok) {
                 const data = await res.json();
-                console.log('data: ', data);
                 setChannelData(data);
             } else {
                 console.log('error');
@@ -66,8 +65,9 @@ const useWebSocket = (channelId) => {
     };
 
     useEffect(() => {
+        setLoading(true);
         showRoomData();
-    }, [channelId]);
+    }, [channelId,showRoomData]);
 
     const sendMessage = (chatMessage) => {
         if (clientRef.current) {
