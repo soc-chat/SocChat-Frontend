@@ -47,27 +47,31 @@ const useWebSocket = (channelId) => {
         };
     }, [channelId]);
 
-    const showRoomData = async () => {
-        try {
-            const res = await fetch(`https://socchat-api.mya.ong/room/${channelId}`);
-
-            if (res.ok) {
-                const data = await res.json();
-                setChannelData(data);
-            } else {
-                console.log('error');
-            }
-        } catch (error) {
-            console.log(error);
-        } finally {
-            setLoading(false);
-        }
-    };
+    
 
     useEffect(() => {
-        setLoading(true);
-        showRoomData();
-    }, [channelId,showRoomData]);
+        const showRoomData = async () => {
+            try {
+                const res = await fetch(`https://socchat-api.mya.ong/room/${channelId}`);
+    
+                if (res.ok) {
+                    const data = await res.json();
+                    setChannelData(data);
+                } else {
+                    console.log('error');
+                }
+            } catch (error) {
+                console.log(error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        if (channelId) {
+            setLoading(true);
+            showRoomData();
+        }
+    }, [channelId]);
 
     const sendMessage = (chatMessage) => {
         if (clientRef.current) {
