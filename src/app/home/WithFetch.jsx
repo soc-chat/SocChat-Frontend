@@ -21,7 +21,7 @@ const useFetch = () => {
                 console.log(error);
             }
         };
-        
+
         showRoom();
         const interval = setInterval(showRoom, 10000);
 
@@ -34,14 +34,14 @@ const useFetch = () => {
 };
 
 const WithFetch = (HomePage) => {
-    const withFetchDisplay = (props) => {
+    const WithFetchDisplay = (props) => {
         const rooms = useFetch(); 
 
         return <HomePage {...props} rooms={rooms} />;
     };
 
-    withFetchDisplay.displayName = `WithFetch(${HomePage.displayName || HomePage.name})`
-    return withFetchDisplay;
+    WithFetchDisplay.displayName = `WithFetch(${HomePage.displayName || HomePage.name})`
+    return WithFetchDisplay;
 };
 
 export default WithFetch;
