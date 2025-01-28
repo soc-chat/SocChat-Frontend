@@ -23,7 +23,7 @@ const ChatPage = ({messages, sendMessage, channelId, channelData}) => {
             alert('존재하지않는 채팅방입니다.')
             router.push('/home');
         }
-    },[channelId])
+    },[channelId, router, channelData])
 
     const handleContextMenu = (e, target) => {
         e.preventDefault();
