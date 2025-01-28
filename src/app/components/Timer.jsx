@@ -18,7 +18,7 @@ const Timer = ({expireTime}) => {
 
         // 컴포넌트가 언마운트될 때 interval 정리
         return () => clearInterval(time);
-    }, []); // 처음
+    }, [expire, timeRemaining]); // 처음
     return(
         <div className="timer">
             <CountdownCircleTimer 

@@ -32,11 +32,14 @@ const useFetch = () => {
 };
 
 const WithFetch = (HomePage) => {
-    return (props) => {
+    const withFetchDisplay = (props) => {
         const rooms = useFetch(); 
 
         return <HomePage {...props} rooms={rooms} />;
     };
+
+    withFetchDisplay.displayName = `WithFetch(${HomePage.displayName || HomePage.name})`
+    return withFetchDisplay;
 };
 
 export default WithFetch;

@@ -82,7 +82,7 @@ const useWebSocket = (channelId) => {
 };
 
 const WithWebSocket = (ChatPage) => {
-    return ({ channelId, ...props }) => {
+    const withWebSocketDisplay = ({ channelId, ...props }) => {
         const { messages, sendMessage, channelData, loading } = useWebSocket(channelId);
 
         if (loading) {
@@ -99,6 +99,9 @@ const WithWebSocket = (ChatPage) => {
             />
         );
     };
+
+    withWebSocketDisplay.displayName = `WithWebSocket(${ChatPage.displayName || ChatPage.name})`
+    return withWebSocketDisplay;
 };
 
 export default WithWebSocket;
