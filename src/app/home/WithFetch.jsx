@@ -3,8 +3,6 @@ import { useState, useEffect } from 'react';
 const useFetch = () => {
     const [rooms, setRooms] = useState([]);
 
-    
-
     useEffect(() => {
         const showRoom = async () => {
             try {
