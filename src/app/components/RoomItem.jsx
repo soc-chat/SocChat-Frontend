@@ -2,8 +2,11 @@
 
 import { useEffect, useState } from 'react';
 import './RoomItem.css';
+import { useRouter } from 'next/navigation';
 
 const RoomItem = ({num, name, expireTime}) => {
+    const router = useRouter();
+
     const [timeRemaining, setTimeRemaining] = useState(0); // expireTime을 상태로 관리
     const expire = Date.parse(expireTime);
 
@@ -19,7 +22,7 @@ const RoomItem = ({num, name, expireTime}) => {
     }, [expire, timeRemaining]); // 처음
 
     return(
-        <div className="roomItem">
+        <div className="roomItem" onClick={()=>{router.push('/waiting')}}>
             <p className='num'>{num+1}</p>
             <div className="room_detail">
                 <p style={{color:timeRemaining<=600000 ? '#FF3030' : '#3072FF', fontSize: '12px'}}>{timeRemaining<=600000 ? `💣${Math.floor(timeRemaining/60000)}분 남았어요` : `⌛ ${Math.floor(timeRemaining/60000)}분 남았어요`}</p>
