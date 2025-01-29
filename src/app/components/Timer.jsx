@@ -1,8 +1,13 @@
+'use client';
+
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import './Timer.css';
 
 const Timer = ({expireTime}) => {
+    const router = useRouter();
+
     const [timeRemaining, setTimeRemaining] = useState(0); // expireTime을 상태로 관리
     const expire = Date.parse(expireTime);
 
@@ -12,6 +17,9 @@ const Timer = ({expireTime}) => {
             
             console.log('expire: ',expire);
             console.log('current: ',current);
+            if(expire<=current){//타임 아웃
+                router.push('/boom');
+            }
             setTimeRemaining(expire-current);
             console.log(timeRemaining);
         }, 1000);
