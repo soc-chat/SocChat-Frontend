@@ -17,14 +17,7 @@ const Waiting = ({room}) => {
     useEffect(() => {
         const time = setInterval(() => {
             const current = new Date().getTime(); // 현재 시간을 밀리초로 얻기
-            
-            console.log('start: ',start);
-            console.log('current: ',current);
-            if(start<=current){//타임 아웃
-                // router.push('/chat/1');
-            }
             setTimeRemaining(start-current);
-            console.log(timeRemaining);
         }, 1000);
 
         // 컴포넌트가 언마운트될 때 interval 정리
@@ -43,7 +36,7 @@ const Waiting = ({room}) => {
             </div>
             <div className="desc">
                 <div className="desc_text">
-                    <p className='desc_bold'>채팅방이<br /><span style={{color:'#3072FF'}}>{Math.floor(timeRemaining/6000)}분 뒤</span>에 열립니다!</p>
+                    <p className='desc_bold'>채팅방이<br /><span style={{color:'#3072FF'}}>{Math.floor(timeRemaining/6000)>0 ? Math.floor(timeRemaining/6000) : 0}분 뒤</span>에 열립니다!</p>
                     <p style={{color:'#a8a8a8'}}>채팅방은 특정 시간 후에 닫히고, 열려요</p>
                     <p style={{color:'#a8a8a8'}}>진짜 익명 채팅방, 함께 즐겨봐요!</p>
                 </div>

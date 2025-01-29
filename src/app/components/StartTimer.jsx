@@ -15,13 +15,10 @@ const StartTimer = ({startTime}) => {
         const time = setInterval(() => {
             const current = new Date().getTime(); // 현재 시간을 밀리초로 얻기
             
-            console.log('start: ',start);
-            console.log('current: ',current);
             if(start<=current){//타임 아웃
                 router.push('/chat/1');
             }
             setTimeRemaining(start-current);
-            console.log(timeRemaining);
         }, 1000);
 
         // 컴포넌트가 언마운트될 때 interval 정리

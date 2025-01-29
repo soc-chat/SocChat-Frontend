@@ -15,13 +15,10 @@ const Timer = ({expireTime}) => {
         const time = setInterval(() => {
             const current = new Date().getTime(); // 현재 시간을 밀리초로 얻기
             
-            console.log('expire: ',expire);
-            console.log('current: ',current);
             if(expire<=current){//타임 아웃
                 router.push('/boom');
             }
             setTimeRemaining(expire-current);
-            console.log(timeRemaining);
         }, 1000);
 
         // 컴포넌트가 언마운트될 때 interval 정리

@@ -23,7 +23,7 @@ const useWebSocket = (channelId) => {
             webSocketFactory: () => socket,
             connectHeaders: {},
             debug: function (str) {
-                console.log(str);
+                // console.log(str);
             },
             reconnectDelay: 5000,
             heartbeatIncoming: 4000,
@@ -31,7 +31,7 @@ const useWebSocket = (channelId) => {
         });
 
         client.onConnect = function (frame) {
-            console.log("Connected: " + frame);
+            // console.log("Connected: " + frame);
             client.subscribe(`/sub/chat/room/${channelId}`, (message) => showMessage(message));
         };
 

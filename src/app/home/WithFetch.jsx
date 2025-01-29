@@ -10,7 +10,6 @@ const useFetch = () => {
                 
                 if (res.ok) {
                     const data = await res.json();
-                    console.log('data: ', data);
                     setRooms(data);
                 } else {
                     console.log('error');

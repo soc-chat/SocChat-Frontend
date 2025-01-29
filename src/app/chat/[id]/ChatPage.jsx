@@ -27,10 +27,8 @@ const ChatPage = ({messages, sendMessage, channelId, channelData}) => {
 
     const handleContextMenu = (e, target) => {
         e.preventDefault();
-        console.log(target);
         if (target) {
             const rect = target.getBoundingClientRect(); 
-            console.log(rect);
             setContextMenu({
                 x: rect.left,
                 y: rect.bottom, 
