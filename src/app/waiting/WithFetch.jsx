@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const useFetch = () => {
-    const [rooms, setRooms] = useState([]);
-
-    
+    const [room, setRoom] = useState(null);
 
     useEffect(() => {
         const showRoom = async () => {
@@ -33,14 +31,14 @@ const useFetch = () => {
     return rooms;
 };
 
-const WithFetch = (HomePage) => {
+const WithFetch = (Waiting) => {
     const WithFetchDisplay = (props) => {
         const rooms = useFetch(); 
 
-        return <HomePage {...props} rooms={rooms} />;
+        return <Waiting {...props} rooms={rooms} />;
     };
 
-    WithFetchDisplay.displayName = `WithFetch(${HomePage.displayName || HomePage.name})`
+    WithFetchDisplay.displayName = `WithFetch(${Waiting.displayName || Waiting.name})`
     return WithFetchDisplay;
 };
 

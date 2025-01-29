@@ -52,7 +52,7 @@ const useWebSocket = (channelId) => {
     useEffect(() => {
         const showRoomData = async () => {
             try {
-                const res = await fetch(`https://socchat-api.mya.ong/room/${channelId}`);
+                const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_PORT}/${channelId}`);
     
                 if (res.ok) {
                     const data = await res.json();
