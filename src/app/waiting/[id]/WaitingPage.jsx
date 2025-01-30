@@ -13,8 +13,9 @@ const Waiting = ({room}) => {
     const [timeRemaining, setTimeRemaining] = useState(0);
     const start = Date.parse(room.startTime);
 
+    console.log(room);
     useEffect(() => {
-        if(!room){
+        if(!room.name){
             alert('존재하지않는 채팅방입니다.');
             router.push('/home');
         }
