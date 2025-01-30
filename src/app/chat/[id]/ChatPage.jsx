@@ -60,7 +60,7 @@ const ChatPage = ({messages, sendMessage, channelId, channelData}) => {
     }, [messages])
 
     const handleKeyDown = (e) => {
-        if(e.key === 'Enter'){
+        if(e.key === 'Enter' &&(e.nativeEvent && e.nativeEvent.isComposing === false) ){
             handleSendMessage();
         }
     }

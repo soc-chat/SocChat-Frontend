@@ -40,7 +40,7 @@ const WithFetch = (Waiting) => {
         const {room, loading} = useFetch(channelId); 
 
         if(loading){
-            return <div>Loading...</div>; // 로딩 상태 표시
+            return
         }
 
         return <Waiting {...props} room={room} />;
