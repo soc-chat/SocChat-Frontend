@@ -7,7 +7,6 @@ import './Timer.css';
 
 const Timer = ({expireTime}) => {
     const router = useRouter();
-    console.log(expireTime);
 
     const [timeRemaining, setTimeRemaining] = useState(0); // expireTime을 상태로 관리
     const expire = Date.parse(expireTime);
@@ -15,12 +14,10 @@ const Timer = ({expireTime}) => {
     useEffect(() => {
         const time = setInterval(() => {
             const current = new Date().getTime(); // 현재 시간을 밀리초로 얻기
-            console.log('c: ',Math.floor(timeRemaining/(60*1000)));
             if(expire<=current){//타임 아웃
                 router.push('/boom');
             }
             setTimeRemaining(expire-current);
-            console.log('asd: ',timeRemaining);
         }, 1000);
 
         // 컴포넌트가 언마운트될 때 interval 정리
