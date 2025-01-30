@@ -19,7 +19,7 @@ const Waiting = ({room}) => {
             alert('존재하지않는 채팅방입니다.');
             router.push('/home');
         }
-    })
+    },[room])
 
     useEffect(() => {
         const time = setInterval(() => {

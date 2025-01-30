@@ -20,10 +20,10 @@ const ChatPage = ({messages, sendMessage, channelId, channelData}) => {
 
     useEffect(()=>{
         if(!channelData){
-            alert('존재하지않는 채팅방입니다.')
+            alert('존재하지않는 채팅방입니다.');
             router.push('/home');
         }
-    },[channelId, router, channelData])
+    },[channelData])
 
     const handleContextMenu = (e, target) => {
         e.preventDefault();
@@ -75,9 +75,9 @@ const ChatPage = ({messages, sendMessage, channelId, channelData}) => {
                         <button onClick={() => { router.push('/home') }}>
                             <Image src="/icons/arrow_left.png" alt="뒤로가기" width={30} height={30} />
                         </button>
-                        <ChatTitle>{channelData.name}</ChatTitle>
+                        <ChatTitle>{channelData ? channelData.name : ''}</ChatTitle>
                     </div>
-                    <Timer expireTime={channelData.expireTime}/>
+                    <Timer expireTime={channelData ? channelData.expireTime : ''}/>
                 </TopMenu>
                 <ChatContainer id="chat-messages" contextMenu={contextMenu} onScroll={()=>{setContextMenu(null)}} >
                     {
