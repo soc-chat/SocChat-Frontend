@@ -8,7 +8,7 @@ import './Timer.css';
 const Timer = ({expireTime}) => {
     const router = useRouter();
 
-    const [timeRemaining, setTimeRemaining] = useState(0); // expireTime을 상태로 관리
+    const [timeRemaining, setTimeRemaining] = useState(null); // expireTime을 상태로 관리
     const expire = Date.parse(expireTime);
 
     useEffect(() => {
@@ -25,16 +25,20 @@ const Timer = ({expireTime}) => {
     }, [expire, timeRemaining]); // 처음
     return(
         <div className="timer">
-            <CountdownCircleTimer 
-                isPlaying
-                duration={timeRemaining/1000}
-                colors={'#3072FF'}
-                size={40}
-                strokeWidth={3}
-                trailColor="black"
-            >
-                {({remainingTime}) => (<div className="countdown">{Math.round(remainingTime/60)}</div>)}
-            </CountdownCircleTimer>
+            {
+                timeRemaining && (
+                    <CountdownCircleTimer 
+                        isPlaying
+                        duration={timeRemaining/1000}
+                        colors={'#3072FF'}
+                        size={40}
+                        strokeWidth={3}
+                        trailColor="black"
+                    >
+                        {({remainingTime}) => (<div className="countdown">{Math.round(remainingTime/60)}</div>)}
+                    </CountdownCircleTimer>
+                )
+            }
         </div>
     )
 }
