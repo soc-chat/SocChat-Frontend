@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 const RoomItem = ({num, name, expireTime, channelId}) => {
     const router = useRouter();
 
-    const [timeRemaining, setTimeRemaining] = useState(0); // expireTime을 상태로 관리
+    const [timeRemaining, setTimeRemaining] = useState(null); // expireTime을 상태로 관리
     const expire = Date.parse(expireTime);
 
     useEffect(() => {
@@ -20,6 +20,7 @@ const RoomItem = ({num, name, expireTime, channelId}) => {
         return () => clearInterval(time);
     }, [expire, timeRemaining]); // 처음
 
+    if(!timeRemaining)return
     return(
         <div className="roomItem" onClick={()=>{router.push(`/waiting/${channelId}`)}}>
             <p className='num'>{num+1}</p>
