@@ -11,6 +11,7 @@ const useFetch = () => {
                 if (res.ok) {
                     const data = await res.json();
                     setRooms(data);
+                    console.log(data);
                 } else {
                     console.log('error');
                 }

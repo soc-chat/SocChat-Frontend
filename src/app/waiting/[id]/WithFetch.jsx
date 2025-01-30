@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 
-const useFetch = () => {
+const useFetch = (channelId) => {
     const [room, setRoom] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const showRoom = async () => {
             try {
-                const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_PORT}/1`);
+                const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_PORT}/${channelId}`);
                 
                 if (res.ok) {
                     const data = await res.json();
@@ -30,14 +30,14 @@ const useFetch = () => {
         return () => {
             clearInterval(interval);
         };
-    }, []);
+    }, [channelId]);
 
     return {room, loading};
 };
 
 const WithFetch = (Waiting) => {
-    const WithFetchDisplay = (props) => {
-        const {room, loading} = useFetch(); 
+    const WithFetchDisplay = ({channelId,...props}) => {
+        const {room, loading} = useFetch(channelId); 
 
         if(loading){
             return <div>Loading...</div>; // 로딩 상태 표시

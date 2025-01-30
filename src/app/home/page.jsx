@@ -28,7 +28,7 @@ const Home = ({rooms}) => {
                     <h4>전체 채팅방</h4>
                     {
                         rooms.map((item, index) => (
-                            <RoomItem key={index} num={index} name={item.name} image={item.image} description={item.description} startTime={item.startTime} expireTime={item.expireTime}/>
+                            <RoomItem key={index} num={index} channelId={item.id} name={item.name} image={item.image} description={item.description} startTime={item.startTime} expireTime={item.expireTime}/>
                         ))
                     }
                 </div>

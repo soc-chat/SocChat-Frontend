@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import './Timer.css';
 
-const StartTimer = ({startTime}) => {
+const StartTimer = ({startTime, channelId}) => {
     const router = useRouter();
 
     const [timeRemaining, setTimeRemaining] = useState(0);
@@ -16,7 +16,7 @@ const StartTimer = ({startTime}) => {
             const current = new Date().getTime(); // 현재 시간을 밀리초로 얻기
             
             if(start<=current){//타임 아웃
-                router.push('/chat/1');
+                router.push(`/chat/${channelId}`);
             }
             setTimeRemaining(start-current);
         }, 1000);

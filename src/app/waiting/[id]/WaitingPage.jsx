@@ -1,11 +1,10 @@
 'use client'
 
 import './page.css'
-import StartTimer from '../components/StartTimer';
-import MainButton from '../components/MainButton';
+import StartTimer from '../../components/StartTimer';
+import MainButton from '../../components/MainButton';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import WithFetch from './WithFetch';
 import { useState, useEffect } from 'react';
 
 const Waiting = ({room}) => {
@@ -13,6 +12,13 @@ const Waiting = ({room}) => {
 
     const [timeRemaining, setTimeRemaining] = useState(0);
     const start = Date.parse(room.startTime);
+
+    useEffect(() => {
+        if(!room){
+            alert('존재하지않는 채팅방입니다.');
+            router.push('/home');
+        }
+    })
 
     useEffect(() => {
         const time = setInterval(() => {
@@ -28,7 +34,7 @@ const Waiting = ({room}) => {
         <div className="background">
         <div className="waiting">
             <div className="timer">
-                <StartTimer startTime={room.startTime} />
+                <StartTimer startTime={room.startTime} channelId={room.id}/>
             </div>
             <div className="announce">
                 <Image src="/icons/announce_icon.png" alt="공지" width={14} height={10}/>
@@ -52,4 +58,4 @@ const Waiting = ({room}) => {
     )
 }
 
-export default WithFetch(Waiting);
+export default Waiting;
