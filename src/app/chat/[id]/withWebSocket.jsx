@@ -90,7 +90,7 @@ const WithWebSocket = (ChatPage) => {
         const { messages, sendMessage, channelData, loading } = useWebSocket(channelId);
 
         if (loading) {
-            return <div>Loading...</div>; // 로딩 상태 표시
+            return
         }
 
         return (
