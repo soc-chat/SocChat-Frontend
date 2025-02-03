@@ -13,7 +13,6 @@ const useWebSocket = (channelId) => {
 
     const showMessage = (message) => {
         const parsedMessage = JSON.parse(message.body);
-        console.log(parsedMessage)
         setMessages((prev) => [...prev, parsedMessage]);
     };
 
