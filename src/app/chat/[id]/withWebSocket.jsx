@@ -9,9 +9,11 @@ const useWebSocket = (channelId) => {
     const [messages, setMessages] = useState([]);
     const [channelData, setChannelData] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [sessionId, setSessionId] = useState('');
 
     const showMessage = (message) => {
         const parsedMessage = JSON.parse(message.body);
+        console.log(parsedMessage)
         setMessages((prev) => [...prev, parsedMessage]);
     };
 
@@ -32,7 +34,25 @@ const useWebSocket = (channelId) => {
 
         client.onConnect = function (frame) {
             // console.log("Connected: " + frame);
-            client.subscribe(`/sub/chat/room/${channelId}`, (message) => showMessage(message));
+
+            //세션 아이디 구독 (1회 메시지 받은 후 구독 취소)
+            const sessionSub = client.subscribe(`/user/sub/info`, (message) => {
+                setSessionId(message.body);
+                
+                setTimeout(()=> {
+                    sessionSub.unsubscribe();
+                }, 500);
+            });
+
+            //세션아이디 받기위해 메시지 전송
+            client.publish({
+                destination: '/pub/info',
+                body: ''
+            })
+
+            //채팅 메시지 구독
+            const chatSub = client.subscribe(`/sub/chat/room/${channelId}`, (message) => showMessage(message));
+
         };
 
         client.onDisconnect = () => {
@@ -82,12 +102,12 @@ const useWebSocket = (channelId) => {
         }
     };
 
-    return { messages, sendMessage, channelData, loading };
+    return { messages, sendMessage, channelData, loading, sessionId };
 };
 
 const WithWebSocket = (ChatPage) => {
     const WithWebSocketDisplay = ({ channelId, ...props }) => {
-        const { messages, sendMessage, channelData, loading } = useWebSocket(channelId);
+        const { messages, sendMessage, channelData, loading, sessionId } = useWebSocket(channelId);
 
         if (loading) {
             return
@@ -100,6 +120,7 @@ const WithWebSocket = (ChatPage) => {
                 sendMessage={sendMessage}
                 channelId={channelId}
                 channelData={channelData}
+                sessionId={sessionId}
             />
         );
     };

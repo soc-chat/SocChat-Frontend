@@ -10,9 +10,8 @@ import { Background, Chat, TopMenu, ChatContainer, ChatInput, SendImg, GlobalSty
 import { useRouter } from 'next/navigation';
 
 
-const ChatPage = ({messages, sendMessage, channelId, channelData}) => {
+const ChatPage = ({messages, sendMessage, channelId, channelData, sessionId}) => {
     const router = useRouter(); //navigate
-    
     const messageEndRef = useRef(null)
 
     const [message, setMessage] = useState('');
@@ -82,7 +81,7 @@ const ChatPage = ({messages, sendMessage, channelId, channelData}) => {
                 <ChatContainer id="chat-messages" contextMenu={contextMenu} onScroll={()=>{setContextMenu(null)}} >
                     {
                         messages.map((item, index) => (
-                            <ChatSomeone key={index} name={item.userId} message={item.content} handleContextMenu={handleContextMenu} contextMenu={contextMenu}/>
+                            <ChatSomeone key={index} name={item.userId} message={item.content} handleContextMenu={handleContextMenu} contextMenu={contextMenu} type={sessionId==item.userId ? 'me' : undefined}/>
                         ))
                     }
                     <div ref={messageEndRef}></div>
