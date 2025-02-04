@@ -11,7 +11,7 @@ const ChatSomeone = ({type, name, message, reaction,handleContextMenu, contextMe
             <div className={`profile ${contextMenu ? 'blur' : ''}`}></div>
             <div className="detail" style={{textAlign: type=='me' ? 'right' : undefined}}>
                 <p className={`name ${contextMenu ? 'blur' : ''}`}>{name}</p>
-                <p className={`message ${contextMenu ? contextMenu.reaction === targetRef.current ? 'no-blur' : 'blur' : ''}  ${type} `} onContextMenu={(e) => {handleContextMenu(e, e.target); targetRef.current = e.target.getBoundingClientRect().y; }} ref={targetRef}>{message}</p>
+                <p className={`message ${contextMenu ? contextMenu.reaction === targetRef.current ? 'no-blur' : 'blur' : ''}  ${type} `} ref={targetRef}>{message}</p>{/*onContextMenu={(e) => {handleContextMenu(e, e.target); targetRef.current = e.target.getBoundingClientRect().y; }} */}
                 {
                     reaction ? (
                         <p className='reaction' style={{marginLeft: type == 'me' ? 'auto' : undefined}}>👍 {reaction}</p>
