@@ -24,7 +24,6 @@ const RoomItem = ({num, name, expireTime, channelId, startTime}) => {
         return () => clearInterval(time);
     }, [expire, timeRemaining]); // 처음
 
-    console.log(startRoom);
 
     const handleGoRoom = () => {
         if(startRoom){
