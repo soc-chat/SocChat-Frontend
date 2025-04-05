@@ -10,7 +10,7 @@
     background-color: black;
     width: 440px;
     margin: auto;
-    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     padding: 1px;
 }
 
