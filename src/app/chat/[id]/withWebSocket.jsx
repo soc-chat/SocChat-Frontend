@@ -104,6 +104,7 @@ const useWebSocket = (channelId) => {
     return { messages, sendMessage, channelData, loading, sessionId };
 };
 
+//HOC
 const WithWebSocket = (ChatPage) => {
     const WithWebSocketDisplay = ({ channelId, ...props }) => {
         const { messages, sendMessage, channelData, loading, sessionId } = useWebSocket(channelId);
