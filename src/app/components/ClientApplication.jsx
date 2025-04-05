@@ -1,8 +1,8 @@
-'use client'
+'use client';
 
 import { useEffect } from "react";
 
-export default function CliendApplication({children}){
+export default function ClientApplication({children}){
     useEffect(() => {
         const setScreenSize = () =>{
           const vh = window.innerHeight * 0.01;

@@ -1,7 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Script from "next/script";
-import CliendApplication from "./components/ClientApplication";
+import ClientApplication from "./components/ClientApplication";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -27,9 +27,9 @@ export default function RootLayout({ children }) {
     <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
-      <CliendApplication>
+      <ClientApplication>
       {children}
-    </CliendApplication>
+    </ClientApplication>
     <Script id="clarity-script" strategy="afterInteractive">
       {`
             (function(c,l,a,r,i,t,y){

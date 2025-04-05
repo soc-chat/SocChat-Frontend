@@ -7,7 +7,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    height: var(--vh, 100vh); /* --vh 값을 사용 */
+    height: calc(var(--vh, 1vh) * 100); /* --vh 값을 사용 */
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
