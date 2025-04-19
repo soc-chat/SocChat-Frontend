@@ -1,7 +1,6 @@
 import { GlobalStyle } from '../boom/page.style';
-import './page.css';
 
-import { SplashBackground } from './page.styled';
+import { Logo, SplashBackground } from './page.styled';
 
 const Splash = () => {
     return(
