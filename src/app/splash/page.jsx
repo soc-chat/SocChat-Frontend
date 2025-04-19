@@ -1,13 +1,17 @@
-import { GlobalStyle } from '../boom/page.style';
+'use client'
 
-import { Logo, SplashBackground } from './page.styled';
+import Image from 'next/image';
+import { GlobalStyle } from '../boom/page.style';
+import React from 'react';
+
+import {SplashBackground } from './page.styled';
 
 const Splash = () => {
     return(
             <>
                 <GlobalStyle />
                 <SplashBackground>
-                    <Logo src="/images/socchat_logo.png" alt="socchat logo"  width={130} height={130}/>
+                    <Image style={{margin: 'auto'}} src="/images/socchat_logo.png" alt="socchat logo"  width={130} height={130}/>
                 </SplashBackground>
             </>
     )

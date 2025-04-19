@@ -7,7 +7,3 @@ export const SplashBackground = styled.div`
     user-select: none;
     background-color: black;
 `
-
-export const Logo = styled.image`
-    margin: auto;
-`
